@@ -10,7 +10,7 @@
 <meta property="og:type" content="website">
 <meta property="og:locale" content="pt_BR">
 <meta property="og:url" content="https://maristelarosapsi-lab.github.io/site-maristela/">
-<meta property="og:image" content="https://maristelarosapsi-lab.github.io/site-maristela/fotos/maristela.jpg">
+<meta property="og:image" content="https://maristelarosapsi-lab.github.io/site-maristela/fotos/hero.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="keywords" content="psicóloga Curitiba, terapia de casal Curitiba, terapia familiar Curitiba, psicóloga online, terapia sistêmica, psicoterapia individual, psicóloga para adolescentes, terapia para casais, conflitos familiares, relacionamento, psicóloga CRP, Maristela Rosa Guedes">
 <meta name="geo.region" content="BR-PR">
@@ -25,7 +25,7 @@
   "name": "Maristela Rosa Guedes — Psicóloga · Terapia Sistêmica",
   "description": "Terapia Sistêmica para adolescentes, adultos, casais e famílias. Atendimento presencial em Curitiba/PR e online para todo o Brasil. CRP 08/42074.",
   "url": "https://maristelarosapsi-lab.github.io/site-maristela/",
-  "image": "https://maristelarosapsi-lab.github.io/site-maristela/fotos/maristela.jpg",
+  "image": "https://maristelarosapsi-lab.github.io/site-maristela/fotos/hero.jpg",
   "telephone": "+55-41-99742-3840",
   "email": "maristelarosapsi@gmail.com",
   "priceRange": "R$200 - R$280",
@@ -210,7 +210,7 @@ html.js .reveal.in{opacity:1;transform:none}
 }
 .hero-foto img{
   width:100%;height:100%;object-fit:cover;object-position:top center;
-  filter:sepia(.10) saturate(1.04) brightness(1.01); /* quentura leve, nunca frio (brandbook §06) */
+  filter:saturate(1.03); /* fotos já com tratamento quente de ensaio — só reforço sutil (brandbook §06) */
 }
 .hero-foto .ring{
   position:absolute;width:190px;height:190px;border-radius:50%;
@@ -429,7 +429,16 @@ html.js .g-bars.animate i{animation:crescer .9s ease both}
   aspect-ratio:4/5;overflow:hidden;border-radius:var(--r-lg);
   box-shadow:var(--shadow-deep);
 }
-.sobre-foto img{width:100%;height:100%;object-fit:cover;object-position:top center;filter:sepia(.10) saturate(1.04) brightness(1.01)}
+.sobre-foto img{width:100%;height:100%;object-fit:cover;object-position:top center;filter:saturate(1.03)}
+
+/* ---------- Galeria (sobre) ---------- */
+.galeria{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:84px}
+@media(max-width:760px){.galeria{grid-template-columns:1fr;gap:30px;margin-top:56px}}
+.galeria figure{margin:0}
+.galeria .g-frame{aspect-ratio:4/5;overflow:hidden;border-radius:var(--r-md);box-shadow:var(--shadow-card)}
+.galeria img{width:100%;height:100%;object-fit:cover;filter:saturate(1.03);transition:transform .5s ease}
+.galeria figure:hover img{transform:scale(1.05)}
+.galeria figcaption{font-family:'Fraunces',serif;font-style:italic;font-size:14.5px;color:var(--ink-soft);margin-top:13px;text-align:center}
 .sobre-foto::after{
   content:"";position:absolute;inset:22px -22px -22px 22px;
   border:1px solid var(--gold);border-radius:var(--r-lg);z-index:-1;
@@ -651,8 +660,7 @@ footer{background:var(--ink);color:#B9C4BC;padding:72px 0 0}
         <span class="ring" aria-hidden="true"></span>
         <span class="dot" aria-hidden="true"></span>
         <div class="frame">
-          <!-- Foto atual: registro provisório. Substituir por ensaio profissional (brandbook §06) mantendo o mesmo tratamento. -->
-          <img src="fotos/maristela.jpg" alt="Maristela Rosa Guedes, psicóloga, olhando diretamente para a câmera com expressão acolhedora" width="720" height="900" fetchpriority="high">
+          <img src="fotos/hero.jpg" alt="Maristela Rosa Guedes, psicóloga, sorrindo sentada na poltrona clara do consultório" width="1086" height="1448" fetchpriority="high">
         </div>
         <figcaption>
           <span class="n">Maristela Rosa Guedes</span><br>
@@ -917,7 +925,7 @@ footer{background:var(--ink);color:#B9C4BC;padding:72px 0 0}
     <div class="sobre-grid">
       <figure class="sobre-foto reveal">
         <div class="frame">
-          <img src="fotos/maristela.jpg" alt="Retrato de Maristela Rosa Guedes" loading="lazy" width="720" height="900">
+          <img src="fotos/sobre.jpg" alt="Maristela Rosa Guedes em seu consultório, olhando para a câmera" loading="lazy" width="1086" height="1448">
         </div>
       </figure>
       <div class="sobre-txt reveal">
@@ -940,6 +948,21 @@ footer{background:var(--ink);color:#B9C4BC;padding:72px 0 0}
         </ul>
         <a class="btn btn-clay" href="#agendar">Quero conversar com a Maristela</a>
       </div>
+    </div>
+
+    <div class="galeria reveal">
+      <figure>
+        <div class="g-frame"><img src="fotos/galeria-livro.jpg" alt="Maristela lendo o livro Terapia Familiar e de Casal" loading="lazy" width="1086" height="1448"></div>
+        <figcaption>Estudo contínuo em terapia familiar e de casal</figcaption>
+      </figure>
+      <figure>
+        <div class="g-frame"><img src="fotos/galeria-estudo.jpg" alt="Maristela estudando um livro em sua mesa de trabalho" loading="lazy" width="1086" height="1448"></div>
+        <figcaption>Preparo entre uma sessão e outra</figcaption>
+      </figure>
+      <figure>
+        <div class="g-frame"><img src="fotos/galeria-poltrona.jpg" alt="Maristela sentada em poltrona, em postura de escuta atenta" loading="lazy" width="1100" height="1230"></div>
+        <figcaption>Um espaço de escuta sem julgamento</figcaption>
+      </figure>
     </div>
   </div>
 </section>

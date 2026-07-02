@@ -10,7 +10,7 @@
 
 ## Estrutura (esta pasta É a pasta de edição do site)
 - `index.html` — o site inteiro (HTML único, CSS e JS embutidos)
-- `fotos/maristela.jpg` — foto atual
+- `fotos/` — ensaio profissional (02/07): `hero.jpg` (poltrona clara, sorriso), `sobre.jpg` (blusa verde), `galeria-livro.jpg`, `galeria-estudo.jpg`, `galeria-poltrona.jpg` — otimizadas para web (~115–200 KB)
 - `ebooks/` — os 2 PDFs de download direto ("5 Padrões" e "Pensar Sistêmico")
 - `council/` — relatório e transcript da análise do conselho de especialistas (não publicado)
 - `psi/` — arquivos originais da sessão anterior (não publicado)
