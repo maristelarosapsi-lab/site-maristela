@@ -1,44 +1,46 @@
 # Site — Maristela Rosa Guedes · Psicóloga · Terapia Sistêmica
 
-Site one-page completo em **HTML único** (`index.html`), sem dependências além do Google Fonts.
-Construído a partir do **Brandbook v1.0/2026** (paleta Forest/Bone/Clay/Gold, Fraunces + Inter, prompt das págs. 15–17).
+## 🌐 NO AR
+**https://maverickguedes77-hue.github.io/site-maristela/**
 
-## Estrutura
-- `index.html` — o site inteiro (CSS e JS embutidos)
-- `fotos/maristela.jpg` — foto atual (provisória; ver checklist)
+Hospedado no GitHub Pages (grátis, HTTPS automático) — repositório: `maverickguedes77-hue/site-maristela` (publicado em 02/07/2026).
 
-## Como visualizar
-Basta abrir `index.html` no navegador, ou servir a pasta:
-```
-python -m http.server 8000 --directory .
-```
+## Estrutura (esta pasta É a pasta de edição do site)
+- `index.html` — o site inteiro (HTML único, CSS e JS embutidos)
+- `fotos/maristela.jpg` — foto atual
+- `ebooks/` — os 2 PDFs de download direto ("5 Padrões" e "Pensar Sistêmico")
+- `council/` — relatório e transcript da análise do conselho de especialistas (não publicado)
+- `psi/` — arquivos originais da sessão anterior (não publicado)
 
-## ✔ Já integrado (02/07/2026)
-- **Copy oficial** do `SITE OFICIAL (2).docx`: hero, identificação, benefícios da terapia, "Quem sou eu", voluntariado (Associação Evangelizar, 3+ anos), modalidades (individual/casal/família — inclui **adolescentes**), primeira conversa de 20 minutos, FAQ oficial (10 perguntas), encerramento e redes sociais (Instagram + TikTok).
-- **Calendly real**: `calendly.com/maristelarosapsi/sessao-psicoterapia` (embed na seção Agendamento).
-- **Mercado Pago real**: link de pagamento (preference-id `11887111-f8e98343...`) no botão da seção Agendamento.
+## ✏️ Como editar e republicar
+1. Edite `index.html` (ou peça ao Claude nesta pasta).
+2. No terminal, dentro desta pasta:
+   ```
+   git add -A
+   git commit -m "descrição da mudança"
+   git push
+   ```
+3. O GitHub Pages republica sozinho em ~1 minuto.
 
-## ✅ Checklist ANTES de publicar (itens marcados com tag "EDITAR" no site)
+Para testar localmente antes: `python -m http.server 8000` e abrir `http://localhost:8000`.
 
-**Obrigatórios (ética/veracidade):**
-1. **Números da faixa de confiança** (anos de experiência, pessoas atendidas, prazo médio) — substituir pelos números reais ou remover a faixa.
-2. **Depoimentos** — são exemplos ilustrativos com aviso visível. Só remover o aviso quando houver depoimentos reais **com autorização por escrito** (Código de Ética CFP).
-3. **Formação** (seção Sobre) — preencher instituições e anos reais.
+## ✔ Estado atual (02/07/2026)
+- Copy 100% do documento oficial (`SITE OFICIAL (2).docx`) + brandbook (Fraunces+Inter, Forest/Bone/Clay/Gold)
+- Valor da sessão: **R$ 200** · Formação: 4 anos · Público: adolescentes, adultos, casais e famílias
+- Calendly real embutido (`calendly.com/maristelarosapsi/sessao-psicoterapia`)
+- Mercado Pago real (botão de pagamento na seção Agendamento)
+- E-books com **download direto** após preencher nome/e-mail (sem passar pelo WhatsApp; WhatsApp é opcional)
+- Quiz de padrão relacional (roda 100% no navegador — nada é enviado; declarado no site)
+- **Zero tags EDITAR** em produção (conselho de especialistas apontou como quebra de confiança)
+- Nota de privacidade LGPD no rodapé · Aviso ético CFP (CVV 188 / SAMU 192)
+- Painel "primeira conversa de 20 min" **removido** a pedido (agendamento direto)
 
-**Dados a confirmar:**
-4. **Valor da sessão** — R$ 220 é placeholder; ajustar nos dois lugares (Investimento e Agendamento) e conferir se bate com o valor do link do Mercado Pago.
-5. **Vagas/mês** ("4 novos horários") — confirmar número real.
-6. **Endereço presencial** — confirmar/adicionar na seção Agendamento.
-7. **E-books em PDF** — os formulários hoje registram o pedido via WhatsApp (funciona sem backend). Para envio automático por e-mail, criar conta no [Formspree](https://formspree.io) e seguir o comentário no bloco `/* E-book */` do JS.
-
-**Recomendado:**
-8. **Fotos** — o próprio documento oficial sugere: Hero = rosto próximo olhando para a câmera (a atual serve); "Quem sou eu" = foto espontânea (poltrona, xícara, ambiente real); Propósito = foto em atividade do voluntariado; e uma foto caminhando em parque (comunica "novos caminhos"). Substituir em `fotos/` mantendo proporção 4:5.
-
-## Publicação
-Qualquer host estático serve: Netlify Drop (arrastar a pasta), Vercel, GitHub Pages ou Cloudflare Pages.
+## 📋 Pendências (pós-lançamento)
+1. **Teste de ponta a ponta** (recomendação nº 1 do conselho): agendar um horário-teste no Calendly e abrir o checkout do Mercado Pago até o fim, conferindo se cobra **R$ 200**.
+2. **Leads do e-book**: hoje o download funciona, mas o e-mail digitado **não é salvo em lugar nenhum** (site sem servidor). Fix de 15 min: criar conta grátis no [Formspree](https://formspree.io) e seguir o comentário no bloco `/* E-book */` do JS.
+3. **Depoimentos**: continuam marcados "exemplo ilustrativo" — substituir por reais somente com autorização por escrito (CFP).
+4. **Fotos melhores** (sugestão do próprio documento oficial): Hero = rosto próximo; "Quem sou eu" = espontânea (poltrona/xícara); Propósito = voluntariado; extra = caminhando em parque ("novos caminhos"). Manter proporção 4:5.
+5. **Domínio próprio** (opcional): comprar `maristelaguedes.com.br` (~R$40/ano no registro.br) e apontar para o GitHub Pages (Settings → Pages → Custom domain).
 
 ## O que NÃO alterar sem consultar o brandbook
-- Paleta (hex exatos) e regra 60/25/10/5
-- Fraunces (títulos) + Inter (corpo) — nunca trocar
-- Aviso ético do rodapé (CVV 188 / SAMU 192) — **não-negociável**
-- Alternância de fundos bone → forest → bone-2 (nunca duas seções escuras seguidas)
+- Paleta (hex exatos) e regra 60/25/10/5 · Fraunces + Inter · Aviso ético do rodapé (não-negociável) · Alternância de fundos claro/escuro
