@@ -24,23 +24,34 @@ Hospedado no GitHub Pages (grátis, HTTPS automático) — repositório: `maveri
 
 Para testar localmente antes: `python -m http.server 8000` e abrir `http://localhost:8000`.
 
-## ✔ Estado atual (02/07/2026)
-- Copy 100% do documento oficial (`SITE OFICIAL (2).docx`) + brandbook (Fraunces+Inter, Forest/Bone/Clay/Gold)
-- Valor da sessão: **R$ 200** · Formação: 4 anos · Público: adolescentes, adultos, casais e famílias
-- Calendly real embutido (`calendly.com/maristelarosapsi/sessao-psicoterapia`)
-- Mercado Pago real (botão de pagamento na seção Agendamento)
-- E-books com **download direto** após preencher nome/e-mail (sem passar pelo WhatsApp; WhatsApp é opcional)
-- Quiz de padrão relacional (roda 100% no navegador — nada é enviado; declarado no site)
-- **Zero tags EDITAR** em produção (conselho de especialistas apontou como quebra de confiança)
-- Nota de privacidade LGPD no rodapé · Aviso ético CFP (CVV 188 / SAMU 192)
-- Painel "primeira conversa de 20 min" **removido** a pedido (agendamento direto)
+## ✔ Estado atual (02/07/2026 — 2ª publicação)
+- Copy 100% do documento oficial + brandbook (Fraunces+Inter, Forest/Bone/Clay/Gold)
+- **Hero sem promessas de resultado** (sem "8 semanas") — usa o texto oficial de acolhimento
+- Valor: **R$ 200** · Formação: 4 anos · Público: adolescentes, adultos, casais e famílias
+- Calendly real + Mercado Pago real (**sem boleto** no texto — conferir também no painel do MP se o link aceita boleto e desativar lá)
+- E-books com download direto + **leads enviados por e-mail via FormSubmit** (grátis, sem conta)
+- CTA "Quero agendar minha primeira sessão" no painel pós-download do e-book
+- **Seção de depoimentos removida** — futuro: avaliações reais do Google (ver pendência 3)
+- Sem menção a recibo/reembolso de plano de saúde (removido a pedido)
+- Quiz 100% no navegador · LGPD no rodapé · Aviso ético CFP (CVV 188/SAMU 192) · Zero tags EDITAR
+- Conta GitHub da Maristela (**maristelarosapsi-lab**) convidada como **admin** do repositório — aceitar o convite no e-mail maristelarosapsi@gmail.com
+
+## ⚡ 2 ações imediatas
+1. **Ativar os leads (1 clique):** abrir o e-mail **maristelarosapsi@gmail.com** — há uma mensagem do FormSubmit pedindo confirmação ("Activate"). Depois disso, cada pessoa que baixar o e-book chega como e-mail com nome, e-mail e livro escolhido. (O primeiro lead de teste já foi enviado.)
+2. **Aceitar o convite do GitHub** (mesmo e-mail) para a conta maristelarosapsi-lab virar administradora do site.
+
+## 🌐 Domínio próprio (ex.: maristelaguedespsi.com.br)
+1. Registrar em https://registro.br (~R$40/ano). Sugestões: `maristelaguedespsi.com.br` · `maristelarosaguedes.com.br` · `maristelaguedes.psc.br`
+2. No painel DNS do registro.br, criar:
+   - 4 registros **A** para `@`: `185.199.108.153` · `185.199.109.153` · `185.199.110.153` · `185.199.111.153`
+   - 1 registro **CNAME** para `www` → `maverickguedes77-hue.github.io`
+3. No GitHub: repositório → Settings → Pages → Custom domain → digitar o domínio → salvar → marcar "Enforce HTTPS" (aparece após ~1h de propagação).
+4. Pronto — o site responde no domínio próprio sem mudar mais nada.
 
 ## 📋 Pendências (pós-lançamento)
-1. **Teste de ponta a ponta** (recomendação nº 1 do conselho): agendar um horário-teste no Calendly e abrir o checkout do Mercado Pago até o fim, conferindo se cobra **R$ 200**.
-2. **Leads do e-book**: hoje o download funciona, mas o e-mail digitado **não é salvo em lugar nenhum** (site sem servidor). Fix de 15 min: criar conta grátis no [Formspree](https://formspree.io) e seguir o comentário no bloco `/* E-book */` do JS.
-3. **Depoimentos**: continuam marcados "exemplo ilustrativo" — substituir por reais somente com autorização por escrito (CFP).
-4. **Fotos melhores** (sugestão do próprio documento oficial): Hero = rosto próximo; "Quem sou eu" = espontânea (poltrona/xícara); Propósito = voluntariado; extra = caminhando em parque ("novos caminhos"). Manter proporção 4:5.
-5. **Domínio próprio** (opcional): comprar `maristelaguedes.com.br` (~R$40/ano no registro.br) e apontar para o GitHub Pages (Settings → Pages → Custom domain).
+1. **Teste de ponta a ponta**: agendar horário-teste no Calendly e abrir o checkout do MP até o fim (conferir R$ 200 e se boleto está desativado no link).
+2. **Google Business Profile** (para os comentários reais no Google): criar perfil "Maristela Rosa Guedes — Psicóloga" em https://business.google.com; quando houver avaliações, adicionamos a seção no site puxando as reais.
+3. **Fotos melhores** (guia no documento oficial): Hero = rosto próximo; "Quem sou eu" = espontânea; Propósito = voluntariado; extra = caminhando em parque. Proporção 4:5.
 
 ## O que NÃO alterar sem consultar o brandbook
 - Paleta (hex exatos) e regra 60/25/10/5 · Fraunces + Inter · Aviso ético do rodapé (não-negociável) · Alternância de fundos claro/escuro
