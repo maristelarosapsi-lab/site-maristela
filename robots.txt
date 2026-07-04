@@ -3,4 +3,4 @@ Allow: /
 Disallow: /council/
 Disallow: /psi/
 
-Sitemap: https://maristelarosapsi-lab.github.io/site-maristela/sitemap.xml
+Sitemap: https://www.maristelaguedespsi.com.br/sitemap.xml
