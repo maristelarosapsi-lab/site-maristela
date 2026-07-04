@@ -102,3 +102,10 @@ section.blk p{color:var(--ink-soft);margin:0 0 14px}
 .article ul{padding-left:20px;margin:0 0 16px}
 .article li{color:var(--ink-soft);margin-bottom:8px}
 .article .callout{background:var(--bone2);border-left:3px solid var(--clay);border-radius:8px;padding:16px 20px;margin:22px 0;font-size:15.5px;color:var(--ink)}
+.evidencia{background:var(--white);border:1px solid var(--line);border-radius:var(--r-md);padding:22px 24px;margin:26px 0;box-shadow:var(--shadow-card)}
+.evidencia .ev-tag{display:inline-flex;align-items:center;gap:7px;font-size:11.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--forest2);background:var(--bone2);padding:5px 12px;border-radius:999px;margin-bottom:12px}
+.evidencia .ev-tag svg{width:14px;height:14px;stroke:var(--forest2);fill:none}
+.evidencia p{font-size:15px;margin-bottom:10px}
+.evidencia .ev-fonte{font-size:12.5px;color:var(--ink-soft);font-style:italic}
+.evidencia .ev-fonte a{color:var(--clay)}
+.evidencia .ev-aviso{font-size:12.5px;color:var(--ink-soft);margin-top:10px;padding-top:10px;border-top:1px solid var(--line)}
