@@ -562,6 +562,30 @@ html.js .vagas .pulse::after{
 .calendly-box.compact .calendly-load{min-height:0;padding:20px 22px}
 .calendly-box.compact .calendly-load svg,.calendly-box.compact .cl-title{display:none}
 .calendly-box.compact .cl-sub{max-width:none}
+
+/* ---------- Calendário próprio (estilo Calendly, em português) ---------- */
+.cal{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:16px 16px 18px}
+.cal-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+.cal-head .mname{font-family:'Fraunces',serif;font-size:18px;color:var(--forest);text-transform:capitalize}
+.cal-nav{width:40px;height:40px;border-radius:10px;border:1px solid var(--line);background:var(--white);cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--forest);font-size:20px;line-height:1;transition:background .12s,border-color .12s}
+.cal-nav:hover:not(:disabled){background:var(--bone2);border-color:var(--clay-soft)}
+.cal-nav:disabled{opacity:.3;cursor:not-allowed}
+.cal-wd{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;margin-bottom:5px}
+.cal-wd span{text-align:center;font-size:11px;font-weight:600;color:var(--ink-soft);text-transform:uppercase;letter-spacing:.03em}
+.cal-days{display:grid;grid-template-columns:repeat(7,1fr);gap:4px}
+.cal-day{aspect-ratio:1;min-height:42px;border:0;background:transparent;border-radius:10px;font-family:'Inter',sans-serif;font-size:15px;font-weight:500;color:var(--ink);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .12s,color .12s}
+.cal-day:hover:not(:disabled){background:var(--bone2)}
+.cal-day:disabled{color:#CDC6B8;cursor:default}
+.cal-day.hoje{box-shadow:inset 0 0 0 1.6px var(--gold)}
+.cal-day.sel{background:var(--clay);color:#fff;font-weight:600}
+.slots-lbl{display:block;font-size:11.5px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:var(--ink-soft);margin-top:16px}
+.slots{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:8px}
+@media(max-width:560px){.slots{grid-template-columns:repeat(3,1fr)}}
+.slot{min-height:46px;border:1.5px solid var(--line);background:var(--white);border-radius:10px;font-family:'Inter',sans-serif;font-size:15px;font-weight:600;color:var(--ink);cursor:pointer;transition:border-color .12s,background .12s,color .12s}
+.slot:hover{border-color:var(--clay-soft)}
+.slot.sel{background:var(--clay);border-color:var(--clay);color:#fff}
+.picker-resumo{font-size:14px;color:var(--ink-soft);text-align:center;margin:4px 0 -2px;min-height:20px}
+.picker-resumo b{color:var(--forest)}
 .mp-box{flex:1;display:flex;flex-direction:column;justify-content:center;gap:18px;background:var(--bone2);border-radius:var(--r-md);padding:30px 26px;text-align:center}
 .mp-box .serif{font-size:19px;color:var(--forest)}
 .aceite-box{display:flex;align-items:flex-start;gap:11px;text-align:left;background:var(--white);border:1px solid var(--line);border-radius:var(--r-sm);padding:14px 16px;transition:border-color .25s,box-shadow .25s}
@@ -1075,9 +1099,9 @@ footer{background:var(--ink);color:#B9C4BC;padding:72px 0 0}
       <div class="agenda-card reveal">
         <h3>
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C2693F" stroke-width="1.6" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M8 3v4M16 3v4M3 10h18"/></svg>
-          1 · Agende em três toques
+          1 · Escolha dia e horário
         </h3>
-        <p class="desc">Escolha abaixo e envie: você recebe os horários disponíveis direto no seu WhatsApp, em português.</p>
+        <p class="desc">Selecione o tipo, o formato e o melhor dia e horário. Ao enviar, confirmo a disponibilidade com você pelo WhatsApp.</p>
         <div class="agq" id="agq">
           <span class="agq-lbl">Tipo de sessão</span>
           <div class="chips" data-g="tipo" role="group" aria-label="Tipo de sessão">
@@ -1090,20 +1114,26 @@ footer{background:var(--ink);color:#B9C4BC;padding:72px 0 0}
             <button type="button" class="chip" aria-pressed="true" data-v="Online">Online<small>videochamada</small></button>
             <button type="button" class="chip" aria-pressed="false" data-v="Presencial (Água Verde)">Presencial<small>Água Verde</small></button>
           </div>
-          <span class="agq-lbl">Melhor período</span>
-          <div class="chips c4" data-g="periodo" role="group" aria-label="Melhor período">
-            <button type="button" class="chip" aria-pressed="false" data-v="Manhã">Manhã</button>
-            <button type="button" class="chip" aria-pressed="false" data-v="Tarde">Tarde</button>
-            <button type="button" class="chip" aria-pressed="false" data-v="Noite">Noite</button>
-            <button type="button" class="chip" aria-pressed="true" data-v="Qualquer horário">Tanto faz</button>
+          <span class="agq-lbl">Escolha o dia</span>
+          <div class="cal" id="cal">
+            <div class="cal-head">
+              <button type="button" class="cal-nav" id="calPrev" aria-label="Mês anterior">‹</button>
+              <span class="mname" id="calMname"></span>
+              <button type="button" class="cal-nav" id="calNext" aria-label="Próximo mês">›</button>
+            </div>
+            <div class="cal-wd"><span>dom</span><span>seg</span><span>ter</span><span>qua</span><span>qui</span><span>sex</span><span>sáb</span></div>
+            <div class="cal-days" id="calDays"></div>
           </div>
-          <button type="button" class="btn btn-clay agq-send" id="agqSend">Receber horários no WhatsApp</button>
-          <p class="agq-note">Sem compromisso: você confirma o horário e o pagamento depois.</p>
+          <span class="agq-lbl slots-lbl" id="slotsLbl" hidden>Horário</span>
+          <div class="slots" id="slots"></div>
+          <p class="picker-resumo" id="pickerResumo"></p>
+          <button type="button" class="btn btn-clay agq-send" id="agqSend">Enviar meu pedido no WhatsApp</button>
+          <p class="agq-note">Sem compromisso: confirmo a disponibilidade e você acerta o pagamento depois.</p>
         </div>
-        <div class="agq-ou">ou, se preferir escolher no calendário</div>
-        <div class="calendly-box compact" id="calendlyBox">
+        <p class="agq-ou-link" style="text-align:center;font-size:13px;margin-top:14px"><button type="button" id="calendlyToggle" style="background:none;border:0;color:var(--clay);font:inherit;font-weight:600;cursor:pointer;text-decoration:underline">Prefere ver a agenda em tempo real? Abrir calendário completo</button></p>
+        <div class="calendly-box compact" id="calendlyBox" hidden>
           <button type="button" class="calendly-load" id="calendlyLoad" aria-label="Abrir o calendário de horários">
-            <span class="cl-sub">Veja a agenda em tempo real e escolha dia e horário.</span>
+            <span class="cl-sub">Agenda em tempo real, com confirmação automática.</span>
             <span class="cl-btn">Abrir agenda →</span>
           </button>
         </div>
@@ -1306,9 +1336,10 @@ if (calendlyLoad) {
   });
 }
 
-/* ---------- Agendamento rápido em português: monta o pedido e abre o WhatsApp ---------- */
+/* ---------- Agendamento próprio: chips + calendário PT + envio ao WhatsApp ---------- */
 const agq = document.getElementById('agq');
 if (agq) {
+  // ---- chips de tipo e formato ----
   agq.querySelectorAll('.chips').forEach(g => {
     g.addEventListener('click', e => {
       const b = e.target.closest('.chip');
@@ -1317,14 +1348,89 @@ if (agq) {
       b.setAttribute('aria-pressed', 'true');
     });
   });
+
+  /* ===== DISPONIBILIDADE (a Maristela pode me pedir para ajustar) ===== */
+  const DIAS_SEMANA = [1, 2, 3, 4, 5];              // 0=dom ... 6=sáb (hoje: seg a sex)
+  const HORARIOS = ['08:00','09:00','10:00','11:00','14:00','15:00','16:00','17:00','18:00','19:00','20:00'];
+  const HORIZONTE = 45;                              // dias à frente disponíveis
+  /* =================================================================== */
+
+  const MESES = ['janeiro','fevereiro','março','abril','maio','junho','julho','agosto','setembro','outubro','novembro','dezembro'];
+  const DIASEXT = ['domingo','segunda-feira','terça-feira','quarta-feira','quinta-feira','sexta-feira','sábado'];
+  const hoje = new Date(); hoje.setHours(0,0,0,0);
+  const limite = new Date(hoje); limite.setDate(limite.getDate() + HORIZONTE);
+  let view = new Date(hoje.getFullYear(), hoje.getMonth(), 1);
+  let selDate = null, selTime = null;
+
+  const elDays = document.getElementById('calDays'), elMname = document.getElementById('calMname');
+  const elPrev = document.getElementById('calPrev'), elNext = document.getElementById('calNext');
+  const elSlots = document.getElementById('slots'), elSlotsLbl = document.getElementById('slotsLbl');
+  const elResumo = document.getElementById('pickerResumo');
+
+  const sameDay = (a,b) => a.getFullYear()===b.getFullYear() && a.getMonth()===b.getMonth() && a.getDate()===b.getDate();
+  const disp = d => d >= hoje && d <= limite && DIAS_SEMANA.includes(d.getDay());
+  const fmtData = d => DIASEXT[d.getDay()] + ', ' + String(d.getDate()).padStart(2,'0') + '/' + String(d.getMonth()+1).padStart(2,'0');
+
+  function render() {
+    elMname.textContent = MESES[view.getMonth()] + ' ' + view.getFullYear();
+    elDays.innerHTML = '';
+    const startPad = new Date(view.getFullYear(), view.getMonth(), 1).getDay();
+    const nDays = new Date(view.getFullYear(), view.getMonth()+1, 0).getDate();
+    for (let i=0;i<startPad;i++) elDays.appendChild(document.createElement('span'));
+    for (let d=1; d<=nDays; d++) {
+      const date = new Date(view.getFullYear(), view.getMonth(), d);
+      const btn = document.createElement('button');
+      btn.type='button'; btn.className='cal-day'; btn.textContent=d;
+      if (sameDay(date,hoje)) btn.classList.add('hoje');
+      if (!disp(date)) { btn.disabled=true; btn.setAttribute('aria-disabled','true'); }
+      else {
+        if (selDate && sameDay(date,selDate)) btn.classList.add('sel');
+        btn.setAttribute('aria-label', fmtData(date));
+        btn.addEventListener('click', () => { selDate=date; selTime=null; render(); renderSlots(); resumo(); });
+      }
+      elDays.appendChild(btn);
+    }
+    elPrev.disabled = (view.getFullYear()===hoje.getFullYear() && view.getMonth()===hoje.getMonth());
+    elNext.disabled = (view.getFullYear()===limite.getFullYear() && view.getMonth()===limite.getMonth());
+  }
+  function renderSlots() {
+    if (!selDate) { elSlots.innerHTML=''; elSlotsLbl.hidden=true; return; }
+    elSlotsLbl.hidden=false; elSlots.innerHTML='';
+    HORARIOS.forEach(h => {
+      const b=document.createElement('button'); b.type='button'; b.className='slot'; b.textContent=h;
+      if (selTime===h) b.classList.add('sel');
+      b.addEventListener('click', () => { selTime=h; renderSlots(); resumo(); });
+      elSlots.appendChild(b);
+    });
+  }
+  function resumo() {
+    if (selDate && selTime) elResumo.innerHTML = 'Escolhido: <b>' + fmtData(selDate) + ' às ' + selTime + '</b>';
+    else if (selDate) elResumo.innerHTML = 'Agora escolha o <b>horário</b> acima.';
+    else elResumo.textContent = '';
+  }
+  elPrev.addEventListener('click', () => { view=new Date(view.getFullYear(), view.getMonth()-1, 1); render(); });
+  elNext.addEventListener('click', () => { view=new Date(view.getFullYear(), view.getMonth()+1, 1); render(); });
+  render();
+
+  // ---- envio ao WhatsApp ----
   document.getElementById('agqSend').addEventListener('click', () => {
-    const v = k => agq.querySelector('[data-g="' + k + '"] .chip[aria-pressed="true"]')?.dataset.v || '';
-    const msg = 'Olá, Maristela! Quero agendar uma sessão.\n' +
+    const v = k => agq.querySelector('[data-g="'+k+'"] .chip[aria-pressed="true"]')?.dataset.v || '';
+    const quando = (selDate && selTime) ? (fmtData(selDate) + ' às ' + selTime)
+                 : (selDate ? (fmtData(selDate) + ' (horário a combinar)') : 'a combinar');
+    const msg = 'Olá, Maristela! Gostaria de agendar uma sessão:\n' +
       '• Tipo: ' + v('tipo') + '\n' +
       '• Formato: ' + v('formato') + '\n' +
-      '• Melhor período: ' + v('periodo') + '\n\n' +
-      'Pode me enviar os horários disponíveis?';
+      '• Dia e horário: ' + quando + '\n\n' +
+      'Este horário está disponível?';
     window.open('https://wa.me/5541997423840?text=' + encodeURIComponent(msg), '_blank', 'noopener');
+  });
+
+  // ---- alterna a agenda em tempo real (Calendly) como opção secundária ----
+  const tg = document.getElementById('calendlyToggle'), box = document.getElementById('calendlyBox');
+  if (tg && box) tg.addEventListener('click', () => {
+    box.hidden = !box.hidden;
+    tg.style.display = box.hidden ? '' : 'none';
+    if (!box.hidden) box.scrollIntoView({behavior:'smooth', block:'center'});
   });
 }
 
